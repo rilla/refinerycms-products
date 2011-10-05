@@ -1,0 +1,25 @@
+es:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    products:
+      title: Productos
+  admin:
+    products:
+      actions:
+        create_new: Añadir nuevo producto
+        reorder: Reordenar productos
+        reorder_done: Reordenación de productos completada
+      records:
+        title: Productos
+        sorry_no_results: "Lo sentimos, pero no se han encontrado resultados"
+        no_items_yet: Aún no hay productos en la base de datos. Haz click en "Añadir nuevo producto" para añadir el primero.
+      product:
+        view_live_html: Comprobar cómo verán este producto los usuarios<br/><em>(se abre en una ventana nueva)</em>
+        edit: Editar este producto
+        delete: Eliinar este producto definitivamente
+  products:
+    show:
+      other: Otros productos
