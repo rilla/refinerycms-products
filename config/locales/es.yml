@@ -6,6 +6,8 @@ es:
   plugins:
     products:
       title: Productos
+    corporate_pages:
+      title: Páginas
   admin:
     products:
       actions:
@@ -19,7 +21,23 @@ es:
       product:
         view_live_html: Comprobar cómo verán este producto los usuarios<br/><em>(se abre en una ventana nueva)</em>
         edit: Editar este producto
-        delete: Eliinar este producto definitivamente
+        delete: Eliminar este producto definitivamente
+    corporate_pages:
+      actions:
+        create_new: Añadir nueva página
+        reorder: Reordenar páginas
+        reorder_done: Reordenación de páginas completada
+      records:
+        title: Páginas
+        sorry_no_results: "Lo sentimos, pero no se han encontrado resultados"
+        no_items_yet: Aún no hay páginas en la base de datos. Haz click en "Añadir nueva página" para añadir la primera.
+      corporate_page:
+        view_live_html: Comprobar cómo verán esta página los usuarios<br/><em>(se abre en una ventana nueva)</em>
+        edit: Editar esta página
+        delete: Eliminar esta página definitivamente
   products:
     show:
       other: Otros productos
+  corporate_pages:
+    show:
+      other: Otras páginas

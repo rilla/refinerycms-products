@@ -1,4 +1,5 @@
 require 'refinerycms-base'
+require 'render_inheritable'
 
 module Refinery
   module Products
@@ -15,15 +16,28 @@ module Refinery
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
+      refinery.after_inclusion do
+        ::Admin::PagesController.class_eval do
+          render_inheritable
+        end
+      end
+
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "products"
           plugin.pathname = root
           plugin.activity = {
             :class => Product,
-            :title => 'name'
+            :title => 'title'
           }
         end
+        Refinery::Plugin.register do |plugin|
+          plugin.name = "corporate_pages"
+          plugin.pathname = root
+          plugin.activity = {
+            :class => CorporatePage
+          }
+        end        
       end
     end
   end

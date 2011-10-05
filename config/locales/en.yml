@@ -6,6 +6,8 @@ en:
   plugins:
     products:
       title: Products
+    corporate_pages:
+      title: Corporate Pages
   admin:
     products:
       actions:
@@ -20,6 +22,22 @@ en:
         view_live_html: View this product live <br/><em>(opens in a new window)</em>
         edit: Edit this product
         delete: Remove this product forever
+    corporate_pages:
+      actions:
+        create_new: Add New Corporate Page
+        reorder: Reorder Corporate Pages
+        reorder_done: Done Reordering Corporate Pages
+      records:
+        title: Corporate Pages
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Corporate Pages yet. Click "Add New Corporate Page" to add your first corporate page.
+      corporate_page:
+        view_live_html: View this corporate page live <br/><em>(opens in a new window)</em>
+        edit: Edit this corporate page
+        delete: Remove this corporate page forever
   products:
     show:
       other: Other Products
+  corporate_pages:
+    show:
+      other: Other Corporate Pages

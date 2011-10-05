@@ -1,11 +1,9 @@
 module Admin
-  class ProductsController < Admin::PagesController
-
+  class CorporatePagesController < Admin::PagesController
     crudify :page,
-            :conditions => 'pages.type = "Product"',
+            :conditions => 'pages.type = "CorporatePage"',
             :order => "lft ASC",
             :include => [:slugs, :translations, :children],
             :paging => false
-
   end
 end

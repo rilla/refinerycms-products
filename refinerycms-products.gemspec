@@ -7,4 +7,5 @@ Gem::Specification.new do |s|
   s.summary           = 'Products engine for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir['lib/**/*', 'config/**/*', 'app/**/*']
+  s.add_dependency    'render_inheritable'
 end
