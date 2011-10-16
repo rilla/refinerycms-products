@@ -1,0 +1,38 @@
+<%= form_for [:admin,@page], :as => :page, :remote => true do |f| %>
+
+  <div class="field">
+    <span class='label_with_help'>
+      <%= f.label :title, t(".#{@page.type=='Product' ? 'identifier' : 'title' }") %>
+      <%= refinery_help_tag t(".#{@page.type=='Product' ? 'identifier' : 'title' }_help") %>
+    </span>
+    <%= f.text_field :title, :class => "larger" %>
+  </div>
+
+  <div class='field'>
+    <span class='label_with_help'>
+      <%= f.label :parent_id, t(".parent_#{@page.type=='Product' ? 'product' : 'page' }") %>
+      <%= refinery_help_tag t(".parent_#{@page.type=='Product' ? 'product' : 'page' }_help") %>
+    </span>
+    <% if @page.type == "Product" %>
+      <%= f.select :parent_id, Product.select{|p| p.parent_id.nil? }.map{ |p| [p.title, p.id] },
+                   :include_blank => true %>
+    <% else %>
+      <%= f.select :parent_id, nested_set_options(CorporatePage, @page) {|i| "#{'-' * i.level} #{i.title}" },
+                    :include_blank => true %>
+    <% end %>
+  </div>
+
+  <div class='form-actions form-actions-dialog'>
+    <div class='form-actions-left'>
+      <%= submit_tag t('.create'), :class => "button" %>
+   </div>
+   <div class='form-actions-right'></div>
+ </div>
+
+ <input type='hidden' name='modal' value='true' />
+ <input type='hidden' name='dialog' value='true' />
+
+<% end %>
+<script type="text/javascript" charset="utf-8">
+  init_tooltips();
+</script>

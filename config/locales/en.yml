@@ -9,11 +9,22 @@ en:
     corporate_pages:
       title: Corporate Pages
   admin:
+    pages:
+      new:
+        title: Título de la página
+        parent_page: Página madre
+        title_help: El título que se mostrará en los menús y encabezados del frontend
+        parent_page_help: "La página de la que desciende la que estás creando. Si estás creando una página de primer nivel, deja en blanco este campo."
+        identifier: Identificador de producto o título de sección
+        identifier_help: "<p>Si estás añadiendo una ficha de producto, escoge un identificador para que los editores la reconozcan fácilmente. Después, desde la pantalla de edición, podrás definir el título, subtítulo y metatitle a utilizar en el front-end.</p><p>Si se trata de una sección de una ficha, introduce aquí el título que será visible en el front-end."
+        parent_product: Producto padre
+        parent_product_help: "<p>Si estás añadiendo una ficha de producto, deja este campo en blanco.</p><p>Si estás creando una sección de una ficha de producto, selecciona el producto al que pertenece</p>"
+        create: Crear
     products:
       actions:
-        create_new: Add New Product
-        reorder: Reorder Products
-        reorder_done: Done Reordering Products
+        create_new: Add
+        reorder: Reorder
+        reorder_done: Done Reordering
       records:
         title: Products
         sorry_no_results: Sorry! There are no results found.

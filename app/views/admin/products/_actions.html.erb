@@ -1,0 +1,25 @@
+<% content_for :after_javascript_libraries do %>
+  <%= javascript_include_tag "products-admin" %>
+<% end %>
+<ul>
+  <li>
+    <%= render :partial => "/shared/admin/search", :locals => {:url => admin_products_url} %>
+  </li>
+  <li>
+    <%= link_to_function t('.create_new'), 
+          "display_new_page_dialog($(this), '#{new_admin_product_url}', '#{t('.create_new')}')", 
+          :class => "add_icon" %>
+  </li>
+<% if @pages.many? and !searching? %>
+  <li>
+    <%= link_to t('.reorder'), admin_pages_url,
+                :id => "reorder_action",
+                :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done'), admin_pages_url,
+                :id => "reorder_action_done",
+                :style => "display: none;",
+                :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>
