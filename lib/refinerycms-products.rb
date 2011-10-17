@@ -37,7 +37,14 @@ module Refinery
           plugin.activity = {
             :class => CorporatePage
           }
-        end        
+        end  
+        Refinery::Plugin.register do |plugin|
+          plugin.name = "facets"
+          plugin.pathname = root
+          plugin.activity = {
+            :class => Facet
+          }
+        end
       end
     end
   end

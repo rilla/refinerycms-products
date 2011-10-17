@@ -11,7 +11,7 @@ module Admin
       @page = Product.new
       render :layout => false
     end
-
+    
     def create
       # Set this object as last object, given the conditions of this class.
       params[:page].merge!({
@@ -33,5 +33,9 @@ module Admin
       end
     end
 
+    def destroy
+      @page = Product.find params[:id]
+      @page.destroy
+    end
   end
 end

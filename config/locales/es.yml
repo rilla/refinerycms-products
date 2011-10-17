@@ -8,17 +8,23 @@ es:
       title: Productos
     corporate_pages:
       title: Páginas
+    facets:
+      title: Facetas
   admin:
     pages:
       new:
-        title: Título de la página
+        page_name: Título de la página
+        page_name_help: El título que se mostrará en los menús y encabezados del frontend
         parent_page: Página madre
-        title_help: El título que se mostrará en los menús y encabezados del frontend
         parent_page_help: "La página de la que desciende la que se está creando. Si es una página de primer nivel, deja en blanco este campo. "
-        identifier: Identificador de producto o título de sección
-        identifier_help: "<p>Si estás añadiendo una ficha de producto, escoge un identificador para que los editores la reconozcan fácilmente. Después, desde la pantalla de edición, podrás definir el título, subtítulo y metatitle a utilizar en el front-end.</p><p>Si se trata de una sección de una ficha, introduce aquí el título que será visible en el front-end."
+        product_name: Identificador de producto o título de sección
+        product_name_help: "<p>Si estás añadiendo una ficha de producto, escoge un identificador para que los editores la reconozcan fácilmente. Después, desde la pantalla de edición, podrás definir el título, subtítulo y metatitle a utilizar en el front-end.</p><p>Si se trata de una sección de una ficha, introduce aquí el título que será visible en el front-end."
         parent_product: Producto padre
         parent_product_help: "<p>Si estás añadiendo una ficha de producto, deja este campo en blanco.</p><p>Si estás creando una sección de una ficha de producto, selecciona el producto al que pertenece</p>"
+        facet_name: Nombre de la faceta
+        facet_name_help: El nombre que se usará en el front-end para representar esta faceta de productos.
+        parent_facet: Faceta madre
+        parent_facet_help: "El sistema sólo soporta tres niveles de profundidad en la jerarquía de facetas. Las facetas que se encuentren anidadas en niveles más profundos serán ignoradas."
         create: "Crear"
     products:
       actions:
@@ -28,7 +34,7 @@ es:
       records:
         title: Productos
         sorry_no_results: "Lo sentimos, pero no se han encontrado resultados"
-        no_items_yet: Aún no hay productos en la base de datos. Haz click en "Añadir nuevo producto" para añadir el primero.
+        no_items_yet: Aún no hay productos en la base de datos. Haz click en "Añadir" para crear el primero.
       product:
         view_live_html: Comprobar cómo verán este producto los usuarios<br/><em>(se abre en una ventana nueva)</em>
         edit: Editar este producto
@@ -48,6 +54,19 @@ es:
         view_live_html: Comprobar cómo verán esta página los usuarios<br/><em>(se abre en una ventana nueva)</em>
         edit: Editar esta página
         delete: Eliminar esta página definitivamente
+    facets:
+      actions:
+        create_new: Añadir
+        reorder: Reordenar
+        reorder_done: Reordenación completada
+      records:
+        title: Facetas
+        sorry_no_results: "Lo sentimos, pero no se han encontrado resultados"
+        no_items_yet: Aún no hay facetas en la base de datos. Haz click en "Añadir" para crear la primera.
+      facet:
+        view_live_html: Comprobar cómo verán los usuarios<br/>el índice de esta faceta<em>(se abre en una ventana nueva)</em>
+        edit: Editar esta faceta
+        delete: Eliminar esta faceta definitivamente
   products:
     show:
       other: Otros productos

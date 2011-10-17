@@ -2,19 +2,22 @@
 
   <div class="field">
     <span class='label_with_help'>
-      <%= f.label :title, t(".#{@page.type=='Product' ? 'identifier' : 'title' }") %>
-      <%= refinery_help_tag t(".#{@page.type=='Product' ? 'identifier' : 'title' }_help") %>
+      <%= f.label :title, t(".#{@page.type.downcase}_name") %>
+      <%= refinery_help_tag t(".#{@page.type.downcase}_name_help") %>
     </span>
     <%= f.text_field :title, :class => "larger" %>
   </div>
 
   <div class='field'>
     <span class='label_with_help'>
-      <%= f.label :parent_id, t(".parent_#{@page.type=='Product' ? 'product' : 'page' }") %>
-      <%= refinery_help_tag t(".parent_#{@page.type=='Product' ? 'product' : 'page' }_help") %>
+      <%= f.label :parent_id, t(".parent_#{@page.type.downcase}") %>
+      <%= refinery_help_tag t(".parent_#{@page.type.downcase}_help") %>
     </span>
     <% if @page.type == "Product" %>
       <%= f.select :parent_id, Product.select{|p| p.parent_id.nil? }.map{ |p| [p.title, p.id] },
+                   :include_blank => true %>
+    <% elsif @page.type == "Facet" %>
+      <%= f.select :parent_id, nested_set_options(Facet, @page) {|i| "#{'-' * i.level} #{i.title}" },
                    :include_blank => true %>
     <% else %>
       <%= f.select :parent_id, nested_set_options(CorporatePage, @page) {|i| "#{'-' * i.level} #{i.title}" },

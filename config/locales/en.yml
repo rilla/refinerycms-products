@@ -8,6 +8,8 @@ en:
       title: Products
     corporate_pages:
       title: Corporate Pages
+    facets:
+      title: Facets
   admin:
     pages:
       new:
@@ -46,6 +48,19 @@ en:
         view_live_html: View this corporate page live <br/><em>(opens in a new window)</em>
         edit: Edit this corporate page
         delete: Remove this corporate page forever
+    facets:
+      actions:
+        create_new: Añadir
+        reorder: Reordenar
+        reorder_done: Reordenación completada
+      records:
+        title: Facetas
+        sorry_no_results: "Lo sentimos, pero no se han encontrado resultados"
+        no_items_yet: Aún no hay facetas en la base de datos. Haz click en "Añadir" para crear la primera.
+      facet:
+        view_live_html: Comprobar cómo verán los usuarios<br/>el índice de esta faceta<em>(se abre en una ventana nueva)</em>
+        edit: Editar esta faceta
+        delete: Eliminar esta faceta definitivamente
   products:
     show:
       other: Other Products
