@@ -22,7 +22,15 @@ module Refinery
         end
       end
 
+      def self.register(tab)
+        tab.name = "architecture"
+        tab.partial = "/admin/pages/tabs/architecture"
+      end
+
       config.after_initialize do
+        ::Refinery::Pages::Tab.register do |tab|
+          register tab
+        end
         Refinery::Plugin.register do |plugin|
           plugin.name = "products"
           plugin.pathname = root

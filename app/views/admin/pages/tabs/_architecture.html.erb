@@ -1,0 +1,14 @@
+<div class='wym_skin_refinery page_part architecture' id='page_architecture'>
+  <div class='wym_area_top'>
+  </div>
+  <div class='wym_box field'>
+    <% if @page.type == "Product" %>
+      <%= f.label :facet_tokens, t('.facets') %>
+      <%= f.text_field :facet_tokens, "data-pre" => @page.facets.map(&:as_json).to_json %>
+    <% elsif @page.type = "Facet" %>
+      <%= f.label :product_tokens, t('.products') %>
+      <%= f.text_field :product_tokens, "data-pre" => @page.products.map(&:as_json).to_json %>
+    <% end %>
+  </div>
+  
+</div>

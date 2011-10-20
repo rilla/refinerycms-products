@@ -1,0 +1,43 @@
+#switch_locale_picker {
+  float: right; }
+  #switch_locale_picker p {
+    float: left;
+    margin: 12px 5px 12px 0; }
+  #switch_locale_picker ul {
+    float: left;
+    border: 1px dashed #cccccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    margin: 0; }
+    #switch_locale_picker ul li {
+      display: block;
+      margin: 0 5px 0 0; }
+      #switch_locale_picker ul li a {
+        display: block;
+        padding: 2px 5px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        background-color: #b3e1fb;
+        color: white; }
+        #switch_locale_picker ul li a:hover {
+          background-color: #22a7f2;
+          color: white; }
+      #switch_locale_picker ul li.selected a {
+        background-color: #f07235;
+        color: white; }
+
+.architecture {
+  padding-bottom: 20px; }
+  .architecture label {
+    margin-top: 0; }
+
+.record .title .preview span.set {
+  padding: 2px 5px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: #b3ffb3;
+  color: green; }

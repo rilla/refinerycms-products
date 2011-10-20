@@ -38,5 +38,11 @@ module Admin
       @page.destroy
     end
     
+    def tokens
+      @facets = Facet.with_globalize.where("title like ?", "%#{params[:q]}%")
+      respond_to do |format|
+        format.json { render :json => @facets }
+      end
+    end
   end
 end

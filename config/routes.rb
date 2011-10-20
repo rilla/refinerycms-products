@@ -6,6 +6,9 @@
       collection do
         post :update_positions
       end
+      member do
+        get :children
+      end
     end
   end
 
@@ -14,6 +17,10 @@
     resources :products, :except => :show do
       collection do
         post :update_positions
+        get :tokens
+      end
+      member do
+        get :children
       end
     end
   end
@@ -23,8 +30,12 @@
     resources :facets, :except => :show do
       collection do
         post :update_positions
+        get :tokens
+      end
+      member do
+        get :children
       end
     end
   end
-
+  
 end

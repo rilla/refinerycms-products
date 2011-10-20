@@ -37,5 +37,12 @@ module Admin
       @page = Product.find params[:id]
       @page.destroy
     end
+
+    def tokens
+      @products = Product.with_globalize.where("title like ? and parent_id is null", "%#{params[:q]}%")
+      respond_to do |format|
+        format.json { render :json => @products }
+      end
+    end    
   end
 end

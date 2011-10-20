@@ -1,4 +1,7 @@
 es:
+  age: Edad
+  kind: Tipo
+  interest: Interés
   shared:
     admin:
       image_picker:
@@ -12,6 +15,10 @@ es:
       title: Facetas
   admin:
     pages:
+      tabs:
+        architecture: 
+          facets: Facetas
+          products: Productos
       new:
         page_name: Título de la página
         page_name_help: El título que se mostrará en los menús y encabezados del frontend

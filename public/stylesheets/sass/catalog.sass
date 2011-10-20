@@ -1,0 +1,47 @@
+@import "shared/border-radius"
+$facet_set_color: green
+$locale_highlight_color: #22A7F2
+
+@mixin border
+  border: 1px dashed #CCC
+  +border-radius(5px)
+  padding: 10px
+
+// Nicer locale picker in page forms
+#switch_locale_picker
+  float: right
+  p
+    float: left
+    margin: 12px 5px 12px 0
+  ul 
+    float: left
+    +border
+    margin: 0
+    li
+      display: block
+      margin: 0 5px 0 0
+      a
+        display:  block
+        padding:  2px 5px
+        +border-radius(4px)
+        background-color:  lighten($locale_highlight_color, 30%)
+        color: #fff
+        &:hover
+          background-color:  $locale_highlight_color
+          color: #fff
+      &.selected a
+        background-color:  #f07235
+        color: #fff
+
+// Architecture tabs for Facets and Products
+.architecture
+  padding-bottom: 20px
+  label
+    margin-top:  0
+
+// Facet sets in Facet index
+.record .title .preview span.set
+  padding:  2px 5px
+  +border-radius(4px)
+  background-color:  lighten($facet_set_color, 60%)
+  color: $facet_set_color

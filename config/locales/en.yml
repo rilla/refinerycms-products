@@ -1,4 +1,7 @@
 en:
+  age: Age
+  kind: Kind
+  interest: Interest
   shared:
     admin:
       image_picker:
@@ -12,6 +15,10 @@ en:
       title: Facets
   admin:
     pages:
+      tabs:
+        architecture: 
+          facets: Facetas
+          products: Productos
       new:
         title: Título de la página
         parent_page: Página madre

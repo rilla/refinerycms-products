@@ -1,0 +1,74 @@
+<% content_for :after_javascript_libraries do %>
+  <%= javascript_include_tag 'jquery.autoresize' %>
+  <%= javascript_include_tag 'jquery.textchange.min' %>
+  <%= javascript_include_tag "jquery.tokeninput.js" %>
+  <%= javascript_include_tag "products-admin" %>
+<% end %>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "token-input" %>
+  <%= stylesheet_link_tag "catalog" %>
+<% end %>
+
+<% url_opts = action_name == 'edit' ? {:url => admin_page_path(@page.id)} : {} %>
+<%= form_for [:admin, @page], url_opts.merge({:as => :page}) do |f| %>
+
+  <%= render :partial => "/shared/admin/error_messages",
+             :locals => {
+               :object => @page,
+               :include_object_name => true
+             } %>
+
+  <%= render :partial => "locale_picker",
+             :locals => {
+               :current_locale => Thread.current[:globalize_locale]
+             } if ::Refinery.i18n_enabled? %>
+
+  <div class="clearfix"></div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "larger widest" %>
+  </div>
+
+  <%= render :partial => "form_fields_after_title",
+             :locals => {
+               :f => f
+             } %>
+
+  <div class='field'>
+    <%= render :partial => "form_page_parts",
+               :locals => {
+                 :f => f
+               } %>
+  </div>
+
+  <%= render :partial => "form_advanced_options",
+             :locals => {
+                :f => f
+              } %>
+
+  <%= render :partial => "/shared/admin/form_actions",
+             :locals => {
+               :f => f,
+               :continue_editing => true,
+               :delete_title => t('delete', :scope => 'admin.pages'),
+               :delete_confirmation => t('message', :scope => 'shared.admin.delete', :title => @page.title)
+             } %>
+
+  <%= render :partial => "form_new_page_parts",
+             :locals => {
+               :f => f
+             } if RefinerySetting.find_or_set(:new_page_parts, false) %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(
+        <%= RefinerySetting.find_or_set(:new_page_parts, false).to_s %>
+        , "<%= new_admin_page_part_path %>"
+        , "<%= admin_page_parts_path %>"
+      );
+    });
+  </script>
+<% end %>
