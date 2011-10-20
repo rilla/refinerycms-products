@@ -1,8 +1,9 @@
 <% content_for :after_javascript_libraries do %>
-  <%= javascript_include_tag 'jquery.autoresize' %>
-  <%= javascript_include_tag 'jquery.textchange.min' %>
+  <%= javascript_include_tag 'jquery.autoresize.js' %>
+  <%= javascript_include_tag 'jquery.textchange.min.js' %>
   <%= javascript_include_tag "jquery.tokeninput.js" %>
-  <%= javascript_include_tag "products-admin" %>
+  <%= javascript_include_tag "catalog.js" %>
+  <%= javascript_include_tag 'jquery.autogrowinput.js' %>
 <% end %>
 <% content_for :stylesheets do %>
   <%= stylesheet_link_tag "token-input" %>
@@ -18,17 +19,28 @@
                :include_object_name => true
              } %>
 
+   <div id="breadcrumbs">
+     <%= t('.editing') %>
+     <% @page.ancestors.each do |p| %>
+        <%= link_to p.title, p.url %> &raquo;
+     <% end %>
+     <%= f.text_field :title, :class => "autoresize" %>
+   </div>
+
   <%= render :partial => "locale_picker",
              :locals => {
                :current_locale => Thread.current[:globalize_locale]
              } if ::Refinery.i18n_enabled? %>
+  <% if f.object.type == "Facet" and f.object.parent.nil? %>
+   <div id="facet_set">
+     <%= f.label :set, t('.facet_set') %>
+     <div class="border">
+       <%= f.select :set, options_for_select(RefinerySetting.get(:facet_sets).map{ |set| [t(set), set] })  %>
+     </div>
+   </div>
+  <% end %>
 
   <div class="clearfix"></div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :class => "larger widest" %>
-  </div>
 
   <%= render :partial => "form_fields_after_title",
              :locals => {

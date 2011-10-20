@@ -15,6 +15,9 @@ es:
       title: Facetas
   admin:
     pages:
+      form:
+        editing: Estás editando
+        facet_set: Grupo
       tabs:
         architecture: 
           facets: Facetas
@@ -30,6 +33,8 @@ es:
         parent_product_help: "<p>Si estás añadiendo una ficha de producto, deja este campo en blanco.</p><p>Si estás creando una sección de una ficha de producto, selecciona el producto al que pertenece</p>"
         facet_name: Nombre de la faceta
         facet_name_help: El nombre que se usará en el front-end para representar esta faceta de productos.
+        facet_set: Grupo
+        facet_set_help: "Sólo se pueden agrupar las facetas de primer nivel, así que este campo se desactivará si seleccionas una faceta madre"
         parent_facet: Faceta madre
         parent_facet_help: "El sistema sólo soporta tres niveles de profundidad en la jerarquía de facetas. Las facetas que se encuentren anidadas en niveles más profundos serán ignoradas."
         create: "Crear"

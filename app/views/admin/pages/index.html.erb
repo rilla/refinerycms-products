@@ -1,6 +1,9 @@
 <% content_for :stylesheets do %>
   <%= stylesheet_link_tag "catalog" %>
 <% end %>
+<% content_for :after_javascript_libraries do %>
+  <%= javascript_include_tag "catalog" %>
+<% end %>
 <section id='records' class='tree'>
   <% caching = RefinerySetting.find_or_set(:cache_pages_backend, false) %>
   <% cache_if(caching, [Refinery.base_cache_key, "pages_backend", Globalize.locale].join('_')) do %>

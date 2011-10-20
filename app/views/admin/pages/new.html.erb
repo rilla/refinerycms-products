@@ -7,8 +7,19 @@
     </span>
     <%= f.text_field :title, :class => "larger" %>
   </div>
-
-  <div class='field'>
+  
+  <% if @page.type == "Facet" %>
+    <div class='field facet_set'>
+      <span class='label_with_help'>
+        <%= f.label :set, t(".facet_set") %>
+        <%= refinery_help_tag t(".facet_set_help") %>
+      </span>
+      <%= f.select :set, options_for_select(RefinerySetting.get(:facet_sets).map{ |set| [t(set), set] }),
+                   :include_blank => true %>
+    </div>
+  <% end %>
+  
+  <div class='field<%= " left" if @page.type == "Facet" %>'>
     <span class='label_with_help'>
       <%= f.label :parent_id, t(".parent_#{@page.type.downcase}") %>
       <%= refinery_help_tag t(".parent_#{@page.type.downcase}_help") %>
@@ -17,13 +28,17 @@
       <%= f.select :parent_id, Product.select{|p| p.parent_id.nil? }.map{ |p| [p.title, p.id] },
                    :include_blank => true %>
     <% elsif @page.type == "Facet" %>
-      <%= f.select :parent_id, nested_set_options(Facet, @page) {|i| "#{'-' * i.level} #{i.title}" },
-                   :include_blank => true %>
+      <%= f.select :parent_id, options_for_select(Facet.all.reject{ |f| f.parent_id.present? }.map {|f| [f.title, f.id] }),
+                   {:include_blank => true}, :onchange => "$(this).disable_facet_set_selection()" %>
     <% else %>
       <%= f.select :parent_id, nested_set_options(CorporatePage, @page) {|i| "#{'-' * i.level} #{i.title}" },
                     :include_blank => true %>
     <% end %>
   </div>
+  
+  <% if @page.type == "Facet" %>
+    <div class="clearfix"></div>
+  <% end %>
 
   <div class='form-actions form-actions-dialog'>
     <div class='form-actions-left'>

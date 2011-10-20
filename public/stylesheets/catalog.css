@@ -29,6 +29,41 @@
         background-color: #f07235;
         color: white; }
 
+#breadcrumbs {
+  float: left; }
+  #breadcrumbs input {
+    border: 1px dashed #cccccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    width: 0; }
+  #breadcrumbs a {
+    color: #f07235;
+    text-decoration: none;
+    border: 0; }
+
+#facet_set {
+  float: right; }
+  #facet_set label {
+    float: left;
+    font-weight: normal; }
+  #facet_set .border {
+    float: left;
+    border: 1px dashed #cccccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px; }
+
+.new_page_dialog .left {
+  float: left; }
+
+.new_page_dialog .field.facet_set {
+  float: right;
+  margin-right: 20px; }
+
 .architecture {
   padding-bottom: 20px; }
   .architecture label {

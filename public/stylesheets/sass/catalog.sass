@@ -33,6 +33,35 @@ $locale_highlight_color: #22A7F2
         background-color:  #f07235
         color: #fff
 
+// Breadcrumbs in Page forms
+#breadcrumbs
+  float: left
+  input
+    +border
+    outline: none
+    width: 0
+  a
+    color: #F07235
+    text-decoration: none
+    border: 0
+
+// Facet set in Facet form
+#facet_set
+  float: right
+  label
+    float: left
+    font-weight: normal
+  .border
+    float: left
+    +border
+
+// Facet set in new Facet dialog
+.new_page_dialog .left
+  float: left
+.new_page_dialog .field.facet_set
+  float: right
+  margin-right: 20px
+
 // Architecture tabs for Facets and Products
 .architecture
   padding-bottom: 20px

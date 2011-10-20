@@ -1,4 +1,0 @@
-<% if f.object.type == "Facet" and f.object.parent.nil? %>
-  <%= f.label :set, t('facet_set') %>
-  <%= f.select :set, options_for_select(RefinerySetting.get(:facet_sets).map{ |set| [t(set), set] })  %>
-<% end %>

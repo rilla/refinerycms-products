@@ -9,6 +9,25 @@ function display_new_page_dialog($elem, url, title) {
 }
 
 jQuery(document).ready(function($) {
+
+  $.fn.extend({
+    disable_facet_set_selection: function(){
+      if($('option:selected',this).val() == "") {
+        $("#page_set").attr("disabled", false);
+      } else {
+        $('#page_set option:first').attr("selected", true);
+        $("#page_set").attr("disabled", true);
+      }
+    }
+  });
+
+  $('input.autoresize').each(function(){ 
+    $(this).autoGrowInput({
+      comfortZone: 10,
+      minWidth: 10,
+      maxWidth: 1000});
+    });
+
   $("#page_facet_tokens").each(function() {
     $(this).tokenInput("/refinery/facets/tokens.json", {
         crossDomain: false,
@@ -21,4 +40,7 @@ jQuery(document).ready(function($) {
         prePopulate: $(this).data("pre")
     });
   });
+
+
+  
 });
