@@ -44,5 +44,6 @@ module Admin
         format.json { render :json => @facets }
       end
     end
+
   end
 end

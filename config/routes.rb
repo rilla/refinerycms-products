@@ -12,6 +12,19 @@
     end
   end
 
+
+  resources :categories, :only => [:index, :show]
+  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
+    resources :categories, :except => :show do
+      collection do
+        post :update_positions
+      end
+      member do
+        get :children
+      end
+    end
+  end
+
   resources :products, :only => [:index, :show]
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :products, :except => :show do
@@ -21,6 +34,15 @@
       end
       member do
         get :children
+      end
+    end
+  end
+
+  resources :sections, :only => [:index, :show]
+  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
+    resources :sections, :except => :show do
+      collection do
+        post :update_positions
       end
     end
   end

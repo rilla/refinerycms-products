@@ -1,28 +1,27 @@
 module Admin
-  class CorporatePagesController < Admin::PagesController
-    
+  class CategoriesController < Admin::PagesController
     crudify :page,
-            :conditions => 'pages.type = "CorporatePage"',
+            :conditions => 'pages.type = "Category"',
             :order => "lft ASC",
             :include => [:slugs, :translations, :children],
             :paging => false
     def new
-      @page = CorporatePage.new
+      @page = Category.new
       render :layout => false
     end
-    
+
     def create
       # Set this object as last object, given the conditions of this class.
       params[:page].merge!({
-        :position => ((CorporatePage.maximum(:position) ||-1) + 1)
+        :position => ((Category.maximum(:position) ||-1) + 1)
       })
 
-      if (@page = CorporatePage.create(params[:page])).valid?
+      if (@page = Category.create(params[:page])).valid?
         flash.now.notice = t(
           'refinery.crudify.created',
           :what => "'#{@page.title}'"
         )
-        render :js => "parent.window.location = '#{admin_corporate_pages_url}';"
+        render :js => "parent.window.location = '#{admin_categories_url}';"
       else
         render do |page| 
           message = "Ha habido errores:\n"
@@ -33,7 +32,7 @@ module Admin
     end
 
     def destroy
-      @page = CorporatePage.find params[:id]
+      @page = Category.find params[:id]
       @page.destroy
     end
 

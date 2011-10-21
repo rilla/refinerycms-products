@@ -7,11 +7,21 @@ module Admin
             :include => [:slugs, :translations, :children],
             :paging => false
 
+    def index
+      unless searching?
+        # @categories = Category.all
+        @pages = Category.all# :group => "parent_id"
+      else
+        # @categories = Category.all
+        # @categories = @categories.products.with_query(params[:search])
+      end
+    end
+
     def new
       @page = Product.new
       render :layout => false
     end
-    
+
     def create
       # Set this object as last object, given the conditions of this class.
       params[:page].merge!({
@@ -43,6 +53,11 @@ module Admin
       respond_to do |format|
         format.json { render :json => @products }
       end
-    end    
+    end
+
+    def children
+      @page = find_page
+      render :layout => false
+    end
   end
 end
